@@ -10,11 +10,13 @@ use std::env;
 fn main() {
     env_logger::init();
 
-    let host = "127.0.0.1";
+    let host = "0.0.0.0";
     let port = match env::var("PORT") {
         Ok(p) => p,
         Err(e) => panic!("couldn't find port: {}", e),
     };
+
+    println!("listening on {}:{}", host, port);
 
     let server = Server::new(|request, mut response| {
         info!("Request received. {} {}", request.method(), request.uri());
