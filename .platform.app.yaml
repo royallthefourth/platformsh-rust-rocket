@@ -1,0 +1,27 @@
+name: app
+
+type: golang:1.10
+
+hooks:
+    build: |
+        set -e
+        curl https://sh.rustup.rs -sSf | sh
+        cargo build --release
+        mv target/release/rust-example .
+        rm -rf target
+
+web:
+    upstream:
+        socket_family: tcp
+        protocol: http
+
+    commands:
+        start: |
+            ./rust-example
+    locations:
+        /:
+            root: www
+            allow: false
+            passthru: true
+
+disk: 1024

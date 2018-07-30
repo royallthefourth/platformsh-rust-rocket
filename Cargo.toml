@@ -1,0 +1,9 @@
+[package]
+name = "rust-example"
+version = "0.1.0"
+authors = ["Royall Spence <royall@royall.us>"]
+
+[dependencies]
+env_logger = "0.5.11"
+log = "0.4.0"
+simple-server = "0.3.0"
