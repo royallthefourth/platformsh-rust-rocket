@@ -5,7 +5,10 @@ type: golang:1.10
 hooks:
     build: |
         set -e
-        curl https://sh.rustup.rs -sSf | sh
+        curl -o /tmp/rust.sh https://sh.rustup.rs
+        chmod +x /tmp/rust.sh
+        /tmp/rust.sh -y
+        source /app/.cargo/env
         cargo build --release
         mv target/release/rust-example .
         rm -rf target
