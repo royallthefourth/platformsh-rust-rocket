@@ -13,7 +13,7 @@ fn main() {
     let host = "127.0.0.1";
     let port = match env::var("PORT") {
         Ok(p) => p,
-        Err(e) => panic!("couldn't interpret {}: {}", key, e),
+        Err(e) => panic!("couldn't find port: {}", e),
     };
 
     let server = Server::new(|request, mut response| {
