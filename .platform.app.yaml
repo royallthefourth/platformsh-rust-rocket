@@ -8,8 +8,10 @@ hooks:
         curl -o /tmp/rust.sh https://sh.rustup.rs
         chmod +x /tmp/rust.sh
         /tmp/rust.sh -y --default-toolchain nightly
-        /app/.cargo/bin/cargo build --release
+        . ~/.cargo/env
+        cargo build --release
         mv target/release/rust-example .
+        rm -rf src
         rm -rf target
 
 web:
