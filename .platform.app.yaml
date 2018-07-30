@@ -26,3 +26,5 @@ web:
             root: www
             allow: false
             passthru: true
+
+disk: 1024
