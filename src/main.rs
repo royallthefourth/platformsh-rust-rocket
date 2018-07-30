@@ -1,27 +1,13 @@
-extern crate env_logger;
-#[macro_use]
-extern crate log;
+#![feature(plugin)]
+#![plugin(rocket_codegen)]
 
-extern crate simple_server;
+extern crate rocket;
 
-use simple_server::Server;
-use std::env;
+#[get("/")]
+fn index() -> &'static str {
+    "Hello from Rust!"
+}
 
 fn main() {
-    env_logger::init();
-
-    let host = "0.0.0.0";
-    let port = match env::var("PORT") {
-        Ok(p) => p,
-        Err(e) => panic!("couldn't find port: {}", e),
-    };
-
-    println!("listening on {}:{}", host, port);
-
-    let server = Server::new(|request, mut response| {
-        info!("Request received. {} {}", request.method(), request.uri());
-        Ok(response.body("Hello Rust!".as_bytes().to_vec())?)
-    });
-
-    server.listen(host, port.as_str());
+    rocket::ignite().mount("/", routes![index]).launch();
 }

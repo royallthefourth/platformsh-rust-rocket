@@ -19,11 +19,10 @@ web:
 
     commands:
         start: |
-            ./rust-example
+            ROCKET_ENV=prod ROCKET_PORT=$PORT ./rust-example
+
     locations:
         /:
             root: www
             allow: false
             passthru: true
-
-disk: 1024
