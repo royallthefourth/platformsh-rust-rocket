@@ -7,7 +7,7 @@ hooks:
         set -e
         curl -o /tmp/rust.sh https://sh.rustup.rs
         chmod +x /tmp/rust.sh
-        /tmp/rust.sh -y
+        /tmp/rust.sh -y --default-toolchain nightly
         /app/.cargo/bin/cargo build --release
         mv target/release/rust-example .
         rm -rf target
