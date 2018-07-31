@@ -4,14 +4,10 @@ extern crate stdweb;
 use stdweb::web::{document, HtmlElement, INode, Node};
 
 fn main() {
-    stdweb::initialize();
-
     match document().body() {
         Some(b) => write_document(b),
         None => console!(log, "couldn't get body")
     }
-
-//    stdweb::event_loop();
 }
 
 fn write_document (body: HtmlElement) {
