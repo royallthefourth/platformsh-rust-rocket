@@ -15,6 +15,7 @@ hooks:
         cargo web build --release -p frontend --target wasm32-unknown-unknown
         rm -rf backend
         rm -rf frontend
+        mkdir static
         mv target/release/backend .
         mv target/wasm32-unknown-unknown/release/frontend.js target/wasm32-unknown-unknown/release/frontend.wasm static
         rm -rf target
