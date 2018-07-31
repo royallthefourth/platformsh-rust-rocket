@@ -3,6 +3,13 @@ name = "rust-example"
 version = "0.1.0"
 authors = ["Royall Spence <royall@royall.us>"]
 
-[dependencies]
-rocket = "0.3.15"
-rocket_codegen = "0.3.15"
+[workspace]
+members = ["backend", "frontend"]
+
+[[bin]]
+name = "backend"
+path = "backend/src/main.rs"
+
+[[bin]]
+name = "frontend"
+path = "frontend/src/main.rs"
