@@ -31,11 +31,6 @@ web:
 
     locations:
         /:
-            allow: false
-            passthru: true
-        /static:
-            root: static
-            allow: false
             passthru: true
 
 disk: 1024

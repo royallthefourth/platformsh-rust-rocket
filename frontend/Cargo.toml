@@ -4,4 +4,4 @@ version = "0.1.0"
 authors = ["Royall Spence <royall@royall.us>"]
 
 [dependencies]
-yew = "0.4"
+stdweb = "0.4"

@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>{{ title }}</title>
+    <script type="text/javascript" src="/frontend.js"></script>
 </head>
 <body></body>
 </html>
