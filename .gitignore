@@ -1,2 +1,4 @@
 /target
 **/*.rs.bk
+/static/frontend.js
+/static/frontend.wasm
